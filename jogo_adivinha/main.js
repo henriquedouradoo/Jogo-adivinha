@@ -1,8 +1,13 @@
+// Variaveis
+
+const btnTry = document.querySelector("#btnTry")
+const btnReset = document.querySelector("#btnReset")
 const screen1 = document.querySelector(".screen1")
 const screen2 = document.querySelector(".screen2")
 const randomNumber = Math.round(Math.random() * 10)
 let xAttempts = 1
 
+// Eventos
 // Função Callback
 function handleTryClick(event) {
     event.preventDefault() // Não faça o padrão (Form) enviar o forms
@@ -22,14 +27,12 @@ function handleTryClick(event) {
     
 }
 
-//Eventos
-
-const btnTry = document.querySelector("#btnTry")
-const btnReset = document.querySelector("#btnReset")
-
-btnTry.addEventListener('click', handleTryClick)
-btnReset.addEventListener('click', function() {
-        screen1.classList.remove("hide")
+function handleResetClick() {
+    screen1.classList.remove("hide")
         screen2.classList.add("hide")
         xAttempts = 1
-})
+}
+
+
+btnTry.addEventListener('click', handleTryClick)
+btnReset.addEventListener('click', handleResetClick)
